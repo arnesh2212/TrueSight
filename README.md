@@ -2,6 +2,9 @@
 
 **TrueSight** is an innovative NLP and Vision-based redaction tool that allows user-defined gradational redaction, masking, and anonymization across multiple input formats, including text, images, PDFs, and videos. TrueSight is designed for high security, ensuring that no input data is stored or retrievable, making it an ideal solution for sensitive data.
 
+
+## Demo Link - 
+
 ## Key Features
 
 - **Gradational Redaction**: Unlike traditional redaction tools, TrueSight allows users to define how much information is to be removed, enabling tailored redaction to specific needs.
