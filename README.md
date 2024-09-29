@@ -50,6 +50,7 @@ torchvision
 ## Usage
 First download models in the streamlit folder
 Models - https://drive.google.com/drive/folders/1x5sv_F3odn013JD5-MZQqchJyeVtdNje?usp=sharing 
+
 To launch TrueSight's user interface, run the following command:
 
 ```bash
