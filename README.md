@@ -19,24 +19,21 @@ The PoC for **TrueSight** supports redaction and anonymization for:
 
 ## Requirements
 
-To run TrueSight, ensure you have the following installed:
+To run TrueSight, ensure you have the following dependencies installed:
 
-- Python 3.x
-- Streamlit
-- Necessary Python packages (listed in `requirements.txt`)
-
-## Installation
-
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/YourUsername/TrueSight.git
-    cd TrueSight
-    ```
-
-2. Install the required packages:
-    ```bash
-    pip install -r requirements.txt
-    ```
+```txt
+transformers
+torch
+streamlit
+pandas
+numpy
+pymupdf
+tf-keras
+llama-cpp-python
+ultralytics
+opencv-python
+torchvision
+```
 
 ## Usage
 
@@ -44,3 +41,4 @@ To launch TrueSight's user interface, run the following command:
 
 ```bash
 python -m streamlit run app.py
+```
