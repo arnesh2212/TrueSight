@@ -14,31 +14,38 @@ import Image from "next/image";
 
 const Navbar = () => {
     return (
-        <NavigationMenu className="pt-3">
-            <NavigationMenuList>
-                <div className="pl-5 pr-20">
-                    <Image src={'Logo1.svg'} width={100} height={40}></Image>
-                </div>
-                <NavigationMenuItem>
-                    <NavigationMenuTrigger>Home</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <NavigationMenuLink>Link</NavigationMenuLink>
-                    </NavigationMenuContent>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                    <NavigationMenuTrigger>About Us</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <NavigationMenuLink>Link</NavigationMenuLink>
-                    </NavigationMenuContent>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                    <NavigationMenuTrigger>Developer Info</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <NavigationMenuLink>Link</NavigationMenuLink>
-                    </NavigationMenuContent>
-                </NavigationMenuItem>
-            </NavigationMenuList>
-        </NavigationMenu>
+        <div className="flex py-3 w-full bg-white">
+            <div className="pl-5 pr-20 flex justify-end cursor-pointer">
+                <Image src={'Logo1.svg'} width={150} height={40}></Image>
+            </div>
+            <div className="flex justify-center">
+
+                <NavigationMenu className="">
+                    <NavigationMenuList>
+
+                        <NavigationMenuItem>
+                            <NavigationMenuTrigger className="text-xl">Home</NavigationMenuTrigger>
+                            <NavigationMenuContent>
+                                <NavigationMenuLink>Link</NavigationMenuLink>
+                            </NavigationMenuContent>
+                        </NavigationMenuItem>
+                        <NavigationMenuItem>
+                            <NavigationMenuTrigger className="text-xl">About Us</NavigationMenuTrigger>
+                            <NavigationMenuContent>
+                                <NavigationMenuLink>Link</NavigationMenuLink>
+                            </NavigationMenuContent>
+                        </NavigationMenuItem>
+                        <NavigationMenuItem>
+                            <NavigationMenuTrigger className="text-xl">Developer Info</NavigationMenuTrigger>
+                            <NavigationMenuContent>
+                                <NavigationMenuLink>Link</NavigationMenuLink>
+                            </NavigationMenuContent>
+                        </NavigationMenuItem>
+                    </NavigationMenuList>
+                </NavigationMenu>
+
+            </div>
+        </div>
     )
 }
 
