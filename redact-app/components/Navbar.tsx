@@ -15,7 +15,7 @@ import Image from "next/image";
 const Navbar = () => {
     return (
         <div className="flex py-3 w-full bg-white">
-            <div className="pl-5 pr-20 flex justify-end cursor-pointer">
+            <div className="pl-10 pr-20 flex justify-end cursor-pointer">
                 <Image src={'Logo1.svg'} width={150} height={40}></Image>
             </div>
             <div className="flex justify-center">
