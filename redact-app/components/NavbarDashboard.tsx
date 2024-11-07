@@ -20,7 +20,7 @@ import Image from "next/image"
 export function Navbar() {
     return (
         <div className="flex py-3 w-full bg-white items-center justify-between">
-            <div className="pl-10 pr-20 flex cursor-pointer">
+            <div className="pl-10 pr-20 flex cursor-pointer left-0 sticky z-50">
                 <Image src={'Logo1.svg'} width={150} height={40} alt="REDACT-Logo" />
             </div>
 

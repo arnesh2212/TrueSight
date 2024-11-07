@@ -8,10 +8,15 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <header className="sticky top-0 z-50">
-            <Navbar></Navbar>
-        </header>
+        <div>
 
+            <header className="sticky top-0 z-50">
+                <Navbar></Navbar>
+            </header>
+            <div>
+                {children}
+            </div>
 
+        </div>
     );
 }
