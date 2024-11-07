@@ -7,7 +7,7 @@ import { FlipWords } from "./ui/flip-words";
 
 export function AuroraBackgroundDemo() {
     const words =["PDFs", "Images", "Videos", "Text","Document"];
-    
+
     return (
         <AuroraBackground>
             <motion.div
@@ -20,9 +20,11 @@ export function AuroraBackgroundDemo() {
                 }}
                 className="relative flex flex-col gap-4 items-center justify-center px-4"
             >
-                <div className="text-3xl md:text-7xl font-bold dark:text-white text-center ">
-                    Secure your <FlipWords words={words} /><br/>
+                <div className="text-3xl md:text-7xl font-bold dark:text-white text-start">
+                    Secure your <FlipWords words={words} className=""/><br/>
+                    <div className="mt-3">
                     with REDACT
+                    </div>
                 </div>
                 <div className="font-extralight text-base md:text-4xl dark:text-neutral-200 py-4">
                     Powerful Redaction Tool

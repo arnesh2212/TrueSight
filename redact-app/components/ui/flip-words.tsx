@@ -7,7 +7,7 @@ export const FlipWords = ({
   words,
   duration = 3000,
   className,
-  
+
 }: {
   words: string[];
   duration?: number;
@@ -74,7 +74,7 @@ export const FlipWords = ({
               delay: wordIndex * 0.3,
               duration: 0.3,
             }}
-            className="inline-block whitespace-nowrap "
+            className="inline-block whitespace-nowrap bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent"
           >
             {word.split("").map((letter, letterIndex) => (
               <motion.span
