@@ -4,6 +4,11 @@ import { BackgroundBoxesFooter } from "@/components/Footer";
 
 export default function Home() {
     return (
-        <div></div>
+        <div>
+            <AuroraBackgroundDemo></AuroraBackgroundDemo>
+
+            <WobbleCards></WobbleCards>
+
+        </div>
     );
 }

@@ -22,7 +22,6 @@ const Navbar = () => {
 
                 <NavigationMenu className="">
                     <NavigationMenuList>
-
                         <NavigationMenuItem>
                             <NavigationMenuTrigger className="text-xl">Home</NavigationMenuTrigger>
                         </NavigationMenuItem>
