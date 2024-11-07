@@ -74,7 +74,7 @@ export const FlipWords = ({
               delay: wordIndex * 0.3,
               duration: 0.3,
             }}
-            className="inline-block whitespace-nowrap bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent"
+            className="inline-block whitespace-nowrap "
           >
             {word.split("").map((letter, letterIndex) => (
               <motion.span
@@ -85,7 +85,7 @@ export const FlipWords = ({
                   delay: wordIndex * 0.3 + letterIndex * 0.05,
                   duration: 0.2,
                 }}
-                className="inline-block "
+                className="inline-block bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent"
               >
                 {letter}
               </motion.span>
