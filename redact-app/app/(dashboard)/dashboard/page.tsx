@@ -69,7 +69,7 @@ export default function Home() {
   ];
   return (
     <div>
-      <div className="flex justify-center items-center h-screen bg-gray-200 sticky top-0">
+      <div className="flex justify-center items-center h-screen bg-gray-400 sticky top-0">
         <FileUploadDemo>
         </FileUploadDemo>
       </div>
