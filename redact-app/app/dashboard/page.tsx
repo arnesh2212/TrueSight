@@ -68,19 +68,22 @@ export default function Home() {
     },
   ];
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-200">
-      <FileUploadDemo>
-      </FileUploadDemo>
-      <div className="flex items-center justify-center h-[35rem] w-full">
-    <FloatingDock
-      mobileClassName="translate-y-20" // only for demo, remove for production
-      items={links}
-    />
-  </div>
-      
+    <div>
+      <div className="flex justify-center items-center min-h-screen bg-gray-200">
+        <FileUploadDemo>
+        </FileUploadDemo>
+      </div>
+
+      <div className="mt-2 mb-2 flex items-center justify-center z-10">
+        <FloatingDock
+          mobileClassName="translate-y-20" // only for demo, remove for production
+          items={links}
+        />
+      </div>
+
 
     </div>
-    
-    
+
+
   );
 }
