@@ -8,14 +8,19 @@ import {
 
 export function AppSidebar() {
     return (
-        <Sidebar variant="inset">
-            <SidebarHeader />
+        <div className="pt-60"> {/* Adjust margin-top to align with navbar height */}
+            <Sidebar variant="floating" side="right">
+                <SidebarHeader />
 
-            <SidebarContent>
-                <SidebarGroup />
-                <SidebarGroup />
-            </SidebarContent>
-            <SidebarFooter />
-        </Sidebar>
+                <SidebarContent>
+                    <SidebarGroup />
+                    <SidebarGroup />
+                </SidebarContent>
+
+                <SidebarFooter>
+                    hi
+                </SidebarFooter>
+            </Sidebar>
+        </div>
     )
 }
