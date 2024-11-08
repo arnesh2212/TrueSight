@@ -1,9 +1,9 @@
-import { AuroraBackgroundDemo } from "@/components/AuroraBackground";
-import WobbleCards from "@/components/WobbleCards";
-import { BackgroundBoxesFooter } from "@/components/Footer";
+import Sidebar from "@/components/Sidebar";
 
 export default function Home() {
     return (
-        <div></div>
+        <div>
+            <Sidebar />
+        </div>
     );
 }

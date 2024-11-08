@@ -1,6 +1,10 @@
 import { Navbar } from "@/components/NavbarDashboard";
 import React from "react";
-import Image from 'next/image'
+import {
+    SidebarProvider,
+    SidebarTrigger,
+} from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/Sidebar";
 
 export default function RootLayout({
     children,
@@ -13,9 +17,13 @@ export default function RootLayout({
             <header className="sticky top-0 z-50">
                 <Navbar></Navbar>
             </header>
-            <div>
-                {children}
-            </div>
+            <SidebarProvider>
+                <AppSidebar />
+                <main>
+                    <SidebarTrigger />
+                    {children}
+                </main>
+            </SidebarProvider>
 
         </div>
     );
