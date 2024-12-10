@@ -8,4 +8,9 @@ export default defineConfig({
 	build: {
 		outDir: "dist-react",
 	},
+	resolve: {
+		alias: {
+			"@": "/src",
+		},
+	},
 });
