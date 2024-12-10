@@ -44,5 +44,15 @@
 		"typescript-eslint": "^8.15.0",
 		"vite": "^6.0.1"
 	},
-	"build": {}
+	"build": {
+		"mac": {
+			"icon": "assets/favicon.icns"
+		},
+		"win": {
+			"icon": "assets/favicon.ico"
+		},
+		"linux": {
+			"icon": "assets/favicon-32x32.png"
+		}
+	}
 }
