@@ -29,6 +29,8 @@
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "crypto": "^1.0.1",
+    "crypto-js": "^4.2.0",
     "framer-motion": "^11.11.11",
     "fs": "^0.0.1-security",
     "fs.promises": "^0.1.2",

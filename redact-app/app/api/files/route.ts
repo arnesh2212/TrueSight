@@ -1,6 +1,6 @@
-import bcrypt from "bcryptjs";
 import { type NextRequest, NextResponse } from "next/server";
 import { writeFile } from "node:fs/promises";
+import crypto from "node:crypto";
 
 export async function GET() {
 	return NextResponse.json({ success: true });
@@ -17,8 +17,7 @@ export async function POST(request: NextRequest) {
 	const bytes = await file.arrayBuffer();
 	const buffer = Buffer.from(bytes);
 
-	const salt = await bcrypt.genSalt(10);
-	const hashedFileName = await bcrypt.hash(file.name, salt);
+	const hashedFileName = crypto.randomBytes(16).toString("hex");
 
 	try {
 		const path = `${process.cwd()}/data/input/${hashedFileName}`;

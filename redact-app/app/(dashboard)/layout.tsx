@@ -1,98 +1,23 @@
 "use client";
 
-import { Navbar } from "@/components/NavbarDashboard";
-import React from "react";
-import {
-    SidebarProvider,
-    SidebarTrigger,
-} from "@/components/ui/sidebar";
-import { FloatingDock } from "@/components/ui/floating-dock";
-import {
-    IconBrandGithub,
-    IconBrandX,
-    IconExchange,
-    IconHome,
-    IconNewSection,
-    IconTerminal2,
-} from "@tabler/icons-react";
+import { ReactNode } from "react";
+import Navbar from "@/components/NavbarDashboard";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import Sidebar from "@/components/Sidebar2";
 
-export default function RootLayout({
-    children,
-}: Readonly<{
-    children: React.ReactNode;
-}>) {
-    const links = [
-        {
-            title: "Home",
-            icon: (
-                <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-            ),
-            href: "#",
-        },
-        {
-            title: "Products",
-            icon: (
-                <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-            ),
-            href: "#",
-        },
-        {
-            title: "Components",
-            icon: (
-                <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-            ),
-            href: "#",
-        },
-        {
-            title: "Aceternity UI",
-            icon: (
-                <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-            ),
-            href: "#",
-        },
-        {
-            title: "Changelog",
-            icon: (
-                <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-            ),
-            href: "#",
-        },
-        {
-            title: "Twitter",
-            icon: (
-                <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-            ),
-            href: "#",
-        },
-        {
-            title: "GitHub",
-            icon: (
-                <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-            ),
-            href: "#",
-        },
-    ];
+type LayoutProps = {
+	children: ReactNode;
+};
 
-    return (
-        <div className="bg-gray-400 h-screen flex flex-col">
-            <header className="sticky top-0 z-40">
-                <Navbar />
-            </header>
-            <div className="flex flex-1 h-full">
-                <SidebarProvider>
-                    <Sidebar />
-                    <main className="flex-1">
-                        {children}
-                    </main>
-                </SidebarProvider>
-            </div>
-            <div className="mt-2 mb-2 flex items-center justify-center z-10 sticky bottom-0">
-                <FloatingDock
-                    mobileClassName="translate-y-20"
-                    items={links}
-                />
-            </div>
-        </div>
-    );
+export default function Layout({ children }: LayoutProps) {
+	return (
+		<div className="bg-gray-200 h-screen flex flex-col">
+			<div className="flex flex-1 h-4/5">
+				<SidebarProvider>
+					<Sidebar />
+					<main className="flex-1 overflow-auto">{children}</main>
+				</SidebarProvider>
+			</div>
+		</div>
+	);
 }
