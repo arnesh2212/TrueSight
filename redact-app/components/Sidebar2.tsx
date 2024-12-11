@@ -37,7 +37,17 @@ const Sidebar = () => {
 				</div>
 
 				<div className="text-lg">Gradation Level</div>
-				<div>{/* <Slider defaultValue={[33]} max={100} step={1} /> */}</div>
+				<div><Slider
+					size="md"
+					width="200px"
+					colorPalette="pink"
+					defaultValue={[40]}
+					marks={[
+						{ value: 0, label: "0%" },
+						{ value: 50, label: "50%" },
+						{ value: 100, label: "100%" },
+					]}
+				/></div>
 			</div>
 			<Button
 				className="w-full text-lg bg-sky-950 hover:bg-sky-900"

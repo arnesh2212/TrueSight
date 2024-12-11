@@ -5,7 +5,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/NavbarDashboard";
 import { useState, useEffect } from "react";
-import FloatingDock from "@/components/ui/floating-dock";
+
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
