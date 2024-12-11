@@ -15,7 +15,7 @@ export default function Layout({ children }: LayoutProps) {
 			<div className="flex flex-1 h-4/5">
 				<SidebarProvider>
 					<Sidebar />
-					<main className="flex-1 overflow-auto">{children}</main>
+					<main className="flex-1 overflow-auto h-screen">{children}</main>
 				</SidebarProvider>
 			</div>
 		</div>

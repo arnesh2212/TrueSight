@@ -10,6 +10,13 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
+import { Separator } from "./ui/separator";
+import { IoInformationCircleOutline } from "react-icons/io5";
+import {
+	HoverCard,
+	HoverCardContent,
+	HoverCardTrigger,
+} from "@/components/ui/hover-card";
 
 const Sidebar = () => {
 	return (
@@ -20,7 +27,7 @@ const Sidebar = () => {
 
 				<div className="justify-between mt-3">
 					<div className="text-lg">Degree of Redaction</div>
-					<div className="mb-3">
+					<div className="my-3">
 						<Select>
 							<SelectTrigger className="w-full">
 								<SelectValue placeholder="Select degree" />
@@ -37,12 +44,27 @@ const Sidebar = () => {
 				</div>
 
 				<div className="text-lg">Gradation Level</div>
-				<div>
-				<Slider defaultValue={[33]} max={100} step={1} />
-
+				<div className="my-3 mb-5">
+					<Slider defaultValue={[33]} max={100} step={20} className="" />
 				</div>
-				
+				<Separator />
+
+				<div className="justify-between mt-3">
+					<div className="flex items-center">
+						<div className="text-lg mr-2">Demographics</div>
+						<HoverCard>
+							<HoverCardTrigger asChild>
+								<IoInformationCircleOutline />
+							</HoverCardTrigger>
+							<HoverCardContent className="text-xs">
+								sfdsfdsfdf
+							</HoverCardContent>
+						</HoverCard>
+					</div>
+					<div className="my-3"></div>
+				</div>
 			</div>
+
 			<Button
 				className="w-full text-lg bg-sky-950 hover:bg-sky-900"
 				size={"lg"}
