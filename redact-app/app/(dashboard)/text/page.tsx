@@ -182,7 +182,7 @@ export default function Home() {
 		<div className="flex bg-gray-200 h-screen">
 			<div className="w-3/12 h-full bg-white my-0 mx-0 flex flex-col justify-between p-4 border-r-2 border-gray-200">
 				<div>
-					<div className="font-bold text-xl">Properties</div>
+					<div className="font-bold text-2xl">Properties</div>
 					<div className="font-light text-sm">Select from the options</div>
 
 					<div className="justify-between mt-3">
@@ -290,15 +290,17 @@ export default function Home() {
 							className="w-full h-full p-2 border-r-2 border-gray-200 bg-neutral-50 text-xl"
 							value={inputText}
 							onChange={(e) => setInputText(e.target.value)}
+							placeholder="Enter text to be redacted"
 						/>
 					</div>
 					<div className="flex-1 h-full">
 						<textarea
 							name="output"
 							id="output"
-							className="w-full h-full p-2 text-xl"
+							className="w-full h-full p-2 text-xl border-gray-200 bg-neutral-50"
 							readOnly
 							value={outputText}
+							placeholder="Redacted text here"
 						/>
 					</div>
 				</div>

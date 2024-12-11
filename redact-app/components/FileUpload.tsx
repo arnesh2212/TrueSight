@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { FileUpload } from "@/components/ui/file-upload";
 
-export function FileUploadDemo() {
+export function FileUploadComponent() {
 	const [files, setFiles] = useState<File[]>([]);
 	const handleFileUpload = (files: File[]) => {
 		setFiles(files);

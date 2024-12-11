@@ -24,7 +24,10 @@ export async function POST(request: NextRequest) {
 		await writeFile(path, buffer);
 		console.log(`File uploaded to ${path}`);
 
-		return NextResponse.json({ success: true, path });
+		// Perform redaction process (example: simulate a response)
+		const outputText = "Redacted content...";
+
+		return NextResponse.json({ success: true, output: outputText });
 	} catch (error) {
 		console.error("Error writing file:", error);
 		return NextResponse.json({

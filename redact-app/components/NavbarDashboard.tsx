@@ -22,9 +22,9 @@ export default function Navbar() {
 							Text
 						</TabsTrigger>
 						<TabsTrigger
-							value="Files"
+							value="File"
 							onClick={() => {
-								redirect("/files");
+								redirect("/file");
 							}}
 						>
 							File
