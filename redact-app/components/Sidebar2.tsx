@@ -18,6 +18,8 @@ import {
 	HoverCardTrigger,
 } from "@/components/ui/hover-card";
 
+const levels = [[]];
+
 const Sidebar = () => {
 	return (
 		<div className="w-1/6 h-full bg-white my-0 mx-0 flex flex-col justify-between p-4 border-r-2 border-gray-200">
@@ -65,12 +67,15 @@ const Sidebar = () => {
 				</div>
 			</div>
 
-			<Button
-				className="w-full text-lg bg-sky-950 hover:bg-sky-900"
-				size={"lg"}
-			>
-				Redact
-			</Button>
+			<div>
+				<Button
+					className="w-full text-lg bg-sky-950 hover:bg-sky-900"
+					size={"lg"}
+				>
+					Redact
+				</Button>
+				<div className="h-16">-</div>
+			</div>
 		</div>
 	);
 };

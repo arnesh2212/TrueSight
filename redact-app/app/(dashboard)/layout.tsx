@@ -13,10 +13,8 @@ export default function Layout({ children }: LayoutProps) {
 	return (
 		<div className="bg-gray-200 h-screen flex flex-col">
 			<div className="flex flex-1 h-4/5">
-				<SidebarProvider>
-					<Sidebar />
-					<main className="flex-1 overflow-auto h-screen">{children}</main>
-				</SidebarProvider>
+				{/* <Sidebar /> */}
+				<main className="flex-1 overflow-auto">{children}</main>
 			</div>
 		</div>
 	);

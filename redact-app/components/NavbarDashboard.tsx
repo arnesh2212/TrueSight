@@ -27,7 +27,7 @@ export default function Navbar() {
 								redirect("/files");
 							}}
 						>
-							Document
+							File
 						</TabsTrigger>
 					</TabsList>
 				</Tabs>
