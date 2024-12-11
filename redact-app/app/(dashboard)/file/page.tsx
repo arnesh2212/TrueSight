@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import {
 	Select,
@@ -13,7 +12,6 @@ import {
 } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
 import { Separator } from "@/components/ui/separator";
-import { IoInformationCircleOutline } from "react-icons/io5";
 import {
 	HoverCard,
 	HoverCardContent,
@@ -25,104 +23,339 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from "@/components/ui/accordion";
+import ServerUploadPage from "@/components/fileuploadtry";
 
-const levels = [
-	["person name", "city", "state", "country"],
+const labels = [
 	[
-		"person name",
-		"city",
-		"state",
-		"country",
-		"phone number",
-		"email",
-		"pincode",
-		"company",
+		"Credit Card Number",
+		"Debit Card Number",
+		"Credit Card Expiration Date",
+		"Credit Card CVV/CVC",
+		"Bank Account Number",
+		"IBAN",
+		"Routing Number",
+		"SWIFT/BIC Code",
+		"Private Keys",
+		"API Keys",
+		"Encryption Keys",
+		"Password",
+		"Session Tokens",
+		"Authentication Tokens",
+		"Digital Wallet ID",
+		"Cryptocurrency Wallet Address",
 	],
+	// Priority 2
 	[
-		"person name",
-		"city",
-		"state",
-		"country",
-		"phone number",
-		"email",
-		"pincode",
-		"company",
-		"DOB",
-		"time",
-		"address",
-		"first name",
-		"last name",
-		"gender",
+		"Credit Card Number",
+		"Debit Card Number",
+		"Credit Card Expiration Date",
+		"Credit Card CVV/CVC",
+		"Bank Account Number",
+		"IBAN",
+		"Routing Number",
+		"SWIFT/BIC Code",
+		"Private Keys",
+		"API Keys",
+		"Encryption Keys",
+		"Password",
+		"Session Tokens",
+		"Authentication Tokens",
+		"Digital Wallet ID",
+		"Cryptocurrency Wallet Address",
+		"Full Name",
+		"First Name",
+		"Last Name",
+		"Middle Name",
+		"Date of Birth",
+		"Place of Birth",
+		"Social Security Number (SSN)",
+		"National ID Number",
+		"Passport Number",
+		"Driver's License Number",
+		"Identity Card Number",
+		"Tax Identification Number (TIN)",
+		"CPF",
+		"CNPJ",
+		"Gender",
 	],
+	// Priority 3
 	[
-		"person name",
-		"city",
-		"state",
-		"country",
-		"phone number",
-		"email",
-		"pincode",
-		"company",
-		"DOB",
-		"time",
-		"address",
-		"first name",
-		"last name",
-		"gender",
-		"password",
-		"credit card",
-		"username",
-		"ip",
+		"Credit Card Number",
+		"Debit Card Number",
+		"Credit Card Expiration Date",
+		"Credit Card CVV/CVC",
+		"Bank Account Number",
+		"IBAN",
+		"Routing Number",
+		"SWIFT/BIC Code",
+		"Private Keys",
+		"API Keys",
+		"Encryption Keys",
+		"Password",
+		"Session Tokens",
+		"Authentication Tokens",
+		"Digital Wallet ID",
+		"Cryptocurrency Wallet Address",
+		"Full Name",
+		"First Name",
+		"Last Name",
+		"Middle Name",
+		"Date of Birth",
+		"Place of Birth",
+		"Social Security Number (SSN)",
+		"National ID Number",
+		"Passport Number",
+		"Driver's License Number",
+		"Identity Card Number",
+		"Tax Identification Number (TIN)",
+		"CPF",
+		"CNPJ",
+		"Gender",
+		"Medical Condition",
+		"Diagnosis",
+		"Medication",
+		"Treatment Plan",
+		"Health Insurance Number",
+		"National Health Insurance Number",
+		"Doctor's Name",
+		"Hospital Name",
+		"Vaccination Record",
+		"Court Case Number",
+		"Prisoner ID",
+		"Visa Number",
+		"Passport Expiration Date",
+		"Immigration Status",
 	],
+	// Priority 4
 	[
-		"person name",
-		"city",
-		"state",
-		"country",
-		"phone number",
-		"email",
-		"pincode",
-		"company",
-		"DOB",
-		"time",
-		"address",
-		"first name",
-		"last name",
-		"gender",
-		"password",
-		"credit card",
-		"username",
-		"ip",
-		"url",
-		"social security number",
-		"biometric data",
-		"bank account number",
-		"medical record",
+		"Credit Card Number",
+		"Debit Card Number",
+		"Credit Card Expiration Date",
+		"Credit Card CVV/CVC",
+		"Bank Account Number",
+		"IBAN",
+		"Routing Number",
+		"SWIFT/BIC Code",
+		"Private Keys",
+		"API Keys",
+		"Encryption Keys",
+		"Password",
+		"Session Tokens",
+		"Authentication Tokens",
+		"Digital Wallet ID",
+		"Cryptocurrency Wallet Address",
+		"Full Name",
+		"First Name",
+		"Last Name",
+		"Middle Name",
+		"Date of Birth",
+		"Place of Birth",
+		"Social Security Number (SSN)",
+		"National ID Number",
+		"Passport Number",
+		"Driver's License Number",
+		"Identity Card Number",
+		"Tax Identification Number (TIN)",
+		"CPF",
+		"CNPJ",
+		"Gender",
+		"Medical Condition",
+		"Diagnosis",
+		"Medication",
+		"Treatment Plan",
+		"Health Insurance Number",
+		"National Health Insurance Number",
+		"Doctor's Name",
+		"Hospital Name",
+		"Vaccination Record",
+		"Court Case Number",
+		"Prisoner ID",
+		"Visa Number",
+		"Passport Expiration Date",
+		"Immigration Status",
+		"IP Address",
+		"MAC Address",
+		"Device ID",
+		"Username",
+		"Security Question and Answer",
+		"Digital Signature",
+		"Hash Values",
+		"Network Configuration Data",
+		"Firewall Logs",
+		"Malware Signatures",
+		"URL",
+		"Website Domain",
 	],
+	// Priority 5
 	[
-		"person name",
-		"city",
-		"state",
-		"country",
-		"phone number",
-		"email",
-		"pincode",
-		"company",
-		"DOB",
-		"time",
-		"address",
-		"first name",
-		"last name",
-		"gender",
-		"password",
-		"credit card",
-		"username",
-		"ip",
-		"url",
-		"social security number",
-		"biometric data",
-		"bank account number",
-		"medical record",
+		"Credit Card Number",
+		"Debit Card Number",
+		"Credit Card Expiration Date",
+		"Credit Card CVV/CVC",
+		"Bank Account Number",
+		"IBAN",
+		"Routing Number",
+		"SWIFT/BIC Code",
+		"Private Keys",
+		"API Keys",
+		"Encryption Keys",
+		"Password",
+		"Session Tokens",
+		"Authentication Tokens",
+		"Digital Wallet ID",
+		"Cryptocurrency Wallet Address",
+		"Full Name",
+		"First Name",
+		"Last Name",
+		"Middle Name",
+		"Date of Birth",
+		"Place of Birth",
+		"Social Security Number (SSN)",
+		"National ID Number",
+		"Passport Number",
+		"Driver's License Number",
+		"Identity Card Number",
+		"Tax Identification Number (TIN)",
+		"CPF",
+		"CNPJ",
+		"Gender",
+		"Medical Condition",
+		"Diagnosis",
+		"Medication",
+		"Treatment Plan",
+		"Health Insurance Number",
+		"National Health Insurance Number",
+		"Doctor's Name",
+		"Hospital Name",
+		"Vaccination Record",
+		"Court Case Number",
+		"Prisoner ID",
+		"Visa Number",
+		"Passport Expiration Date",
+		"Immigration Status",
+		"IP Address",
+		"MAC Address",
+		"Device ID",
+		"Username",
+		"Security Question and Answer",
+		"Digital Signature",
+		"Hash Values",
+		"Network Configuration Data",
+		"Firewall Logs",
+		"Malware Signatures",
+		"URL",
+		"Website Domain",
+		"Email Address",
+		"Mobile Phone Number",
+		"Landline Phone Number",
+		"Fax Number",
+		"Social Media Handle",
+		"Postal Address",
+		"ZIP/Postal Code",
+		"City",
+		"State",
+		"Country",
+		"Employer Name",
+		"Job Title",
+		"Employee ID",
+		"Work Email",
+		"Work Phone Number",
+		"Salary Information",
+		"Benefits Details",
+	],
+	// Priority 6
+	[
+		"Credit Card Number",
+		"Debit Card Number",
+		"Credit Card Expiration Date",
+		"Credit Card CVV/CVC",
+		"Bank Account Number",
+		"IBAN",
+		"Routing Number",
+		"SWIFT/BIC Code",
+		"Private Keys",
+		"API Keys",
+		"Encryption Keys",
+		"Password",
+		"Session Tokens",
+		"Authentication Tokens",
+		"Digital Wallet ID",
+		"Cryptocurrency Wallet Address",
+		"Full Name",
+		"First Name",
+		"Last Name",
+		"Middle Name",
+		"Date of Birth",
+		"Place of Birth",
+		"Social Security Number (SSN)",
+		"National ID Number",
+		"Passport Number",
+		"Driver's License Number",
+		"Identity Card Number",
+		"Tax Identification Number (TIN)",
+		"CPF",
+		"CNPJ",
+		"Gender",
+		"Medical Condition",
+		"Diagnosis",
+		"Medication",
+		"Treatment Plan",
+		"Health Insurance Number",
+		"National Health Insurance Number",
+		"Doctor's Name",
+		"Hospital Name",
+		"Vaccination Record",
+		"Court Case Number",
+		"Prisoner ID",
+		"Visa Number",
+		"Passport Expiration Date",
+		"Immigration Status",
+		"IP Address",
+		"MAC Address",
+		"Device ID",
+		"Username",
+		"Security Question and Answer",
+		"Digital Signature",
+		"Hash Values",
+		"Network Configuration Data",
+		"Firewall Logs",
+		"Malware Signatures",
+		"URL",
+		"Website Domain",
+		"Email Address",
+		"Mobile Phone Number",
+		"Landline Phone Number",
+		"Fax Number",
+		"Social Media Handle",
+		"Postal Address",
+		"ZIP/Postal Code",
+		"City",
+		"State",
+		"Country",
+		"Employer Name",
+		"Job Title",
+		"Employee ID",
+		"Work Email",
+		"Work Phone Number",
+		"Salary Information",
+		"Benefits Details",
+		"Reservation Codes",
+		"Flight Number",
+		"Train Ticket Number",
+		"Vehicle Registration Number",
+		"License Plate Number",
+		"Loyalty Program Numbers",
+		"Library Card Number",
+		"Membership Numbers",
+		"Serial Numbers",
+		"Organization/Company Name",
+		"Professional License Number",
+		"Patent Number",
+		"Trademark Number",
+		"Degree Information",
+		"Enrollment Number",
+		"Graduation Date",
+		"Certifications",
 	],
 ];
 
@@ -133,6 +366,7 @@ export default function Home() {
 	const [selectedRedactionLevel, setSelectedRedactionLevel] =
 		useState("partial");
 	const [isFileUploaded, setIsFileUploaded] = useState(false);
+	let file;
 
 	const handleDegreeOfRedactionChange = (value: string) => {
 		setSelectedRedactionLevel(value);
@@ -142,62 +376,46 @@ export default function Home() {
 		setSliderValue(newValue[0]);
 	};
 
-	const handleRedactText = async () => {
-		try {
-			// Calculate valid index for levels
-			const index = Math.floor(sliderValue / 20); // Clamp to 0–4
-			const gradationLevels = levels[index] || []; // Default to empty if out of bounds
+	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		if (!e.target.files || e.target.files.length === 0) return;
+		file = e.target.files[0];
+		setIsFileUploaded(true);
+	};
 
-			//console.log("Index:", index);
-			//console.log("Gradation Levels:", gradationLevels);
-
-			// Prepare JSON payload
-			const payload = {
-				input: inputText,
-				labels: gradationLevels,
-				degree: selectedRedactionLevel,
-			};
-
-			console.log("Payload:", payload);
-
-			const response = await fetch("http://localhost:2212/text", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(payload),
-			});
-
-			if (!response.ok) throw new Error("Network response was not ok");
-
-			const data = await response.json();
-			console.log("Data:", data);
-			setOutputText(data.output);
-		} catch (error) {
-			console.error("Fetch error:", error);
-			setOutputText("Error occurred during redaction");
+	const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+		e.preventDefault();
+		const files = e.dataTransfer.files;
+		if (files && files.length > 0) {
+			file = files[0];
+			setIsFileUploaded(true);
 		}
 	};
 
-	const handleFileUpload = async (file: File) => {
+	const handleUpload = async () => {
+		if (!file) return;
 		try {
 			const formData = new FormData();
 			formData.append("file", file);
 
 			const response = await fetch("/api/files", {
 				method: "POST",
-				body: formData,
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					file,
+					sliderValue,
+					selectedRedactionLevel,
+				}),
 			});
 
 			if (!response.ok) throw new Error("Network response was not ok");
 
 			const data = await response.json();
-			console.log("File upload response:", data);
-			setOutputText(data.output); // Assuming the server returns the redacted text in 'output' field
+			console.log("File uploaded successfully:", data);
 			setIsFileUploaded(true);
 		} catch (error) {
-			console.error("Error uploading file:", error);
-			setOutputText("Failed to upload file");
+			console.error("Upload error:", error);
 		}
 	};
 
@@ -237,7 +455,6 @@ export default function Home() {
 								className=""
 							/>
 						</div>
-						{/* <Separator className="mt-10" /> */}
 
 						<Accordion type="single" collapsible className="w-full mt-40">
 							<AccordionItem value="item-1">
@@ -270,10 +487,11 @@ export default function Home() {
 									</HoverCard>
 								</AccordionTrigger>
 								<AccordionContent>
-									Yes. It comes with default styles that matches the other
+									Yes. It comes with default styles that match the other
 									components&apos; aesthetic.
 								</AccordionContent>
 							</AccordionItem>
+
 							<AccordionItem value="item-3">
 								<AccordionTrigger>
 									<HoverCard>
@@ -297,7 +515,7 @@ export default function Home() {
 						<Button
 							className="w-full text-lg bg-sky-950 hover:bg-sky-900"
 							size={"lg"}
-							onClick={handleRedactText}
+							onClick={() => {}}
 						>
 							Redact
 						</Button>
@@ -305,56 +523,57 @@ export default function Home() {
 					</div>
 				</div>
 			)}
-			<div className="justify-center w-full flex mt-60">
-				<div className="w-400">
-					<FileUpload onFileUploaded={handleFileUpload} />
+			<ServerUploadPage />
+			{/* <div className="justify-center w-full flex mt-60">
+				<div className="w-400 bg-white p-8 rounded-lg shadow-md flex flex-col items-center">
+					<label
+						htmlFor="file"
+						className="text-sm font-medium text-gray-500 cursor-pointer mb-2"
+					>
+						Drag and drop a file or click to browse
+					</label>
+					<input
+						id="file"
+						type="file"
+						accept="/"
+						onChange={handleFileChange}
+						className="hidden"
+					/>
+					<div
+						className="border-2 border-dashed border-gray-300 rounded-lg p-4 flex items-center justify-center"
+						onDrop={handleDrop}
+						onDragOver={(e) => e.preventDefault()}
+					>
+						<FileIcon className="w-12 h-12 text-gray-500 mr-4" />
+						<span className="text-sm font-medium text-gray-500">
+							Select a file
+						</span>
+					</div>
+					<Button onClick={handleUpload} className="mt-4">
+						Upload
+					</Button>
 				</div>
-			</div>
+			</div> */}
 		</div>
 	);
 }
-```
 
-### `api/files/route.ts`
-
-Ensure that your server-side API is set up to handle file uploads and respond with the redacted text.
-
-```ts
-import { type NextRequest, NextResponse } from "next/server";
-import { writeFile } from "node:fs/promises";
-import crypto from "node:crypto";
-
-export async function GET() {
-	return NextResponse.json({ success: true });
-}
-
-export async function POST(request: NextRequest) {
-	const data = await request.formData();
-	const file: File | null = data.get("file") as unknown as File;
-
-	if (!file) {
-		return NextResponse.json({ success: false, message: "No file provided" });
-	}
-
-	const bytes = await file.arrayBuffer();
-	const buffer = Buffer.from(bytes);
-
-	const hashedFileName = crypto.randomBytes(16).toString("hex");
-
-	try {
-		const path = `${process.cwd()}/data/input/${hashedFileName}`;
-		await writeFile(path, buffer);
-		console.log(`File uploaded to ${path}`);
-
-		// Perform redaction process (example: simulate a response)
-		const outputText = "Redacted content...";
-
-		return NextResponse.json({ success: true, output: outputText });
-	} catch (error) {
-		console.error("Error writing file:", error);
-		return NextResponse.json({
-			success: false,
-			message: "Failed to upload file",
-		});
-	}
+function FileIcon(props: React.SVGProps<SVGSVGElement>) {
+	return (
+		<svg
+			{...props}
+			xmlns="http://www.w3.org/2000/svg"
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+			<path d="M14 2v4a2 2 0 0 0 2 2h4" />
+		</svg>
+	);
 }
