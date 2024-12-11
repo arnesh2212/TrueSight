@@ -1,14 +1,15 @@
+"use client";
+
 import { Button } from "./ui/button";
 import {
 	Select,
 	SelectContent,
 	SelectGroup,
 	SelectItem,
-	SelectLabel,
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-import { Slider } from "./ui/slider";
+import { Slider } from "@/components/ui/slider";
 
 const Sidebar = () => {
 	return (
@@ -36,9 +37,7 @@ const Sidebar = () => {
 				</div>
 
 				<div className="text-lg">Gradation Level</div>
-				<div>
-					<Slider defaultValue={[33]} max={100} step={1} />
-				</div>
+				<div>{/* <Slider defaultValue={[33]} max={100} step={1} /> */}</div>
 			</div>
 			<Button
 				className="w-full text-lg bg-sky-950 hover:bg-sky-900"
