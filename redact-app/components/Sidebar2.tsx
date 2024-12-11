@@ -1,4 +1,14 @@
 import { Button } from "./ui/button";
+import {
+	Select,
+	SelectContent,
+	SelectGroup,
+	SelectItem,
+	SelectLabel,
+	SelectTrigger,
+	SelectValue,
+} from "@/components/ui/select";
+import { Slider } from "./ui/slider";
 
 const Sidebar = () => {
 	return (
@@ -9,6 +19,25 @@ const Sidebar = () => {
 
 				<div className="justify-between mt-3">
 					<div className="text-lg">Degree of Redaction</div>
+					<div className="mb-3">
+						<Select>
+							<SelectTrigger className="w-full">
+								<SelectValue placeholder="Select degree" />
+							</SelectTrigger>
+							<SelectContent>
+								<SelectGroup>
+									<SelectItem value="full">Full</SelectItem>
+									<SelectItem value="partial">Partial</SelectItem>
+									<SelectItem value="synthetic">Synthetic</SelectItem>
+								</SelectGroup>
+							</SelectContent>
+						</Select>
+					</div>
+				</div>
+
+				<div className="text-lg">Gradation Level</div>
+				<div>
+					<Slider defaultValue={[33]} max={100} step={1} />
 				</div>
 			</div>
 			<Button
