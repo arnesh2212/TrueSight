@@ -59,3 +59,12 @@ To launch TrueSight's user interface, run the following command:
 ```bash
 python -m streamlit run app.py
 ```
+| Contributors               |
+|---------------------|
+| Anushk Kumar           |
+| Ayush Kumar Anand  |
+| Arnesh Batra       |
+| Arush Gumber       |
+| Abhijaya Pal       |
+| Arhan Jain         |
+
